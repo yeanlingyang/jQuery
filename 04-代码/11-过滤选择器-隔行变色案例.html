@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<!-- ul>li*10{我是内容$} -->
+<ul>
+  <li>我是内容0</li>
+  <li>我是内容1</li>
+  <li>我是内容2</li>
+  <li>我是内容3</li>
+  <li>我是内容4</li>
+  <li>我是内容5</li>
+  <li>我是内容6</li>
+  <li>我是内容7</li>
+  <li>我是内容8</li>
+  <li>我是内容9</li>
+  <li>我是内容10</li>
+</ul>
+
+<script src="./jquery-1.12.4.js"></script>
+<script>
+  $(function() {
+
+    // 过滤选择器(了解)
+    // :even 找到下标为偶数的元素, 下标是从 0 开始的
+    // :odd  找到下标为奇数的元素
+    // :first 找第一个
+    // :last  找最后一个
+    // :eq(下标)  找对应下标的元素
+
+    // $('li:even').css('backgroundColor', 'orange');
+    // $('li:odd').css('backgroundColor', 'green');
+
+    // $('li:first').css('fontSize', 50);
+    // $('li:last').css('fontSize', 50);
+
+    // $('li:eq(3)').css('color', 'red');
+
+
+    // css3 中的 nth-child 编号从 1开始
+    // $('li:nth-child(even)').css('backgroundColor', 'orange');
+    // $('li:nth-child(odd)').css('backgroundColor', 'pink');
+
+  });
+
+</script>
+  
+</body>
+</html>

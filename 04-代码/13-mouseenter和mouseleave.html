@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    
+    .father {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+    }
+    .son {
+      width: 200px;
+      height: 200px;
+      background-color: skyblue;
+    }
+  
+  </style>
+</head>
+<body>
+
+<!-- 
+  mouseover 鼠标移入
+  mouseout  鼠标移出
+
+  mouseenter  鼠标进入
+  mouseleave  鼠标离开
+-->
+<div class="father">
+  <div class="son"></div>
+</div>
+
+<script src="./jquery-1.12.4.js"></script>
+<script>
+  $(function() {
+
+    // 给父元素注册 mouseover mouseout   性能低的
+    // 当移入移出子元素的时候, 也会触发父元素的事件 (事件冒泡)
+
+    // $('.father').mouseover(function() {
+    //   console.log('鼠标移入');
+    // });
+    // $('.father').mouseout(function() {
+    //   console.log('鼠标移出');
+    // });
+
+
+    // 当鼠标移入移出子元素的时候, 不会额外触发父元素的 mouseenter 和 mouseleave
+    $('.father').mouseenter(function() {
+      console.log('鼠标移入');
+    });
+    $('.father').mouseleave(function() {
+      console.log('鼠标移出');
+    });
+
+  });
+
+</script>
+  
+</body>
+</html>

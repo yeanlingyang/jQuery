@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    
+    .box {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="aa bb cc"></div>
+  <div class="aa bb cc abcd"></div>
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+  
+    // 添加类  addClass
+    // 移除类  removeClass  
+    // 判断类  hasClass     特殊: 如果是多个元素, 只有有一个元素有这个类, 就返回 true
+    // 切换类  toggleClass
+    $('div').addClass('box');
+
+    $('div').removeClass('cc');
+
+    console.log($('div').hasClass('dd'));
+    console.log($('div').hasClass('aa'));
+
+    console.log($('div').hasClass('abcd'));
+
+
+    $('div').toggleClass('gaga').toggleClass('gaga');
+  
+  </script>
+  
+</body>
+</html>

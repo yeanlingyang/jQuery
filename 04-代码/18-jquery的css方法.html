@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<div>我是文本</div>
+<div>我是文本</div>
+<div>我是文本</div>
+
+<p>我是p内容</p>
+<p class="box">我是p内容</p>
+<p>我是p内容</p>
+<p>我是p内容</p>
+
+<script src="./jquery-1.12.4.js"></script>
+<script>
+  // css 方法
+  // 1. 设置单个样式    css(name, value);
+  // 2. 设置多个样式    css(obj);
+  // 3. 获取样式        css(name);  获取的是第一个元素的样式
+  $(function() {
+
+    // $('div').css('backgroundColor', 'red');
+    $('.box').css('fontSize', 100);
+    // $('p').css('backgroundColor', 'green');
+    // $('p').css('color', 'red');
+
+    // $('p').css({
+    //   fontSize: 100,
+    //   backgroundColor: 'green',
+    //   color: 'pink'
+    // });
+
+    // console.log($('p').css('fontSize'));
+
+
+    // 1. 设置单个 css(name, value);
+    // 2. 设置多个 css(obj);
+    // 3. 获取    css(name);
+
+  });
+  
+</script>
+  
+</body>
+</html>

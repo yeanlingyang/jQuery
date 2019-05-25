@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+
+<script src="./jquery-1.12.4.js"></script>
+<script>
+  
+  // window.onload = function() {
+  //   console.log(1111);
+  // };
+
+  // window.onload = function() {
+  //   console.log(222);
+  // };
+
+  // $(function() {
+  //   var a = 123;
+  //   console.log(1111);
+  // });
+
+  // $(function() {
+  //   var a = 123;
+  //   console.log(2222);
+  // });
+
+  // window.onload 多个, 下面的会覆盖前面的, 而 jquery入口函数可以写多个
+  // jq入口函数的执行时机, 会比window.onload 更早, jq入口函数, 不会等待图片的加载, window.onload 会等待资源文件的加载(图片)
+
+  // 相对来说, jq入口函数的用户体验会更好一点
+  window.onload = function() {
+    console.log(1111);
+  };
+  $(function() {
+    console.log(2222);
+  });
+  
+</script>
+</body>
+</html>

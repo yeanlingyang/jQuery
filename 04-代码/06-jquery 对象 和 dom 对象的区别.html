@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<ul>
+  <li id="cloth">白衬衫</li>
+  <li>蓝裤子</li>
+  <li>绿袜子</li>
+  <li>大红裤衩子</li>
+</ul>
+
+<script src="./jquery-1.12.4.js"></script>
+<script>
+  // dom的方式
+  // var lis = document.querySelectorAll('li');  // 伪数组, 里面有很多个dom对象
+  // for (var i = 0; i < lis.length; i++) {
+  //   lis[i].innerText = '洗衣服';
+  // };
+
+  // jquery的方式
+  // $('li').text('洗好了');
+
+
+  // dom对象: 通过 js dom 的方式, 获取得到的元素对象, 就是 dom 对象
+  // dom对象有自己的属性和方法
+  // var cloth = document.querySelector('#cloth');
+  // cloth.style.backgroundColor = 'blue';
+
+
+  // jquery对象: 通过 jquery 的方式, 获取页面元素得到的对象, 就是jquery对象
+  // $('#cloth').style.backgroundColor = 'green';  // 错误
+  // $('#cloth').text('洗衣服')
+
+
+  // 关联: jquery对象也是一个伪数组, jquery对象是dom对象的一个集合, 有自己的方法 (text, show)
+  //       jquery对象中存放着 dom 对象
+
+  console.log($('li'));
+
+</script>
+
+
+  
+</body>
+</html>

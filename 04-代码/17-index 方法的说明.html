@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- index() 获取当前元素, 在兄弟元素中的下标 -->
+  <ul>
+    <li><a href="#">我是内容</a></li>
+    <li><a href="#">我是内容</a></li>
+    <li><a href="#">我是内容</a></li>
+    <li><a href="#">我是内容</a></li>
+    <li><a href="#">我是内容</a></li>
+    <li><a href="#">我是内容</a></li>
+  </ul>
+  
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+  
+    $(function() {
+
+      $('a').click(function() {
+        console.log($(this).parent().index());
+      })
+
+    });
+  
+  </script>
+  
+</body>
+</html>

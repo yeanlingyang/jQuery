@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+
+    // 入口函数, 会等待页面加载完成后, 再执行代码
+    // 优点:
+    // 1. 会等待页面加载完成后, 才执行代码, 保证可以获取到元素
+    // 2. 形成了一个沙箱, 可以防止全局变量的污染
+
+    // $(document).ready(function () {
+    //   var a = 123;
+    //   var n = 456;
+    //   // var div = document.querySelector('div');
+    //   // div.innerText = '文本';
+    //   $('div').text('文本');
+    // })
+
+    // 简化写法
+    $(function() {
+      $('div').text('文本');
+    });
+  </script>
+</head>
+
+<body>
+
+  <div>我是内容</div>
+
+
+
+</body>
+
+</html>

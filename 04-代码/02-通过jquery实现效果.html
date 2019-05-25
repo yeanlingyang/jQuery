@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      height: 200px;
+      background-color: pink;
+      margin: 20px 0;
+      display: none;
+    }
+  
+  </style>
+</head>
+<body>
+  <button id="show">显示</button>
+  <button id="set">设置文字</button>
+  <div></div>
+  <div></div>
+  <div></div>
+
+  <!-- 引包 -->
+  <!-- ../ 上一级目录   ./ 当前目录 -->
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    // var show = document.querySelector('#show');
+    // show.onclick = function() { ... };
+
+    $('#show').click(function() {
+      // 让所有的盒子显示   show  hide
+      $('div').show(2000);
+    });
+
+    $('#set').click(function() {
+      // 给所有的盒子设置文字 text  html
+      $('div').text('hello world');
+    });
+  
+  </script>
+  
+</body>
+</html>

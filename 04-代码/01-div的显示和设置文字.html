@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      height: 200px;
+      background-color: pink;
+      margin: 20px 0;
+      display: none;
+    }
+  
+  </style>
+</head>
+<body>
+  <button id="show">显示</button>
+  <button id="set">设置文字</button>
+  <div></div>
+  <div></div>
+  <div></div>
+
+  <script>
+    // 原生js, (不借助任何框架或者库实现的功能)
+
+    // 通过基础dom操作的方式实现功能
+    // 缺点:
+    // 1. 找对象很麻烦, 单词很长
+    // 2. for 循环, 显得很冗余, 每次都要写, 麻烦
+    // 3. 通过 js 实现动画效果, 麻烦  animate
+    var show = document.querySelector('#show');
+    var set = document.querySelector('#set');  // qs
+    var divs = document.querySelectorAll('div');
+
+    show.onclick = function() {
+      for (var i = 0; i < divs.length; i++) {
+        divs[i].style.display = 'block';
+      }
+    };
+
+    set.onclick = function() {
+      for (var i = 0; i < divs.length; i++) {
+        divs[i].innerText = 'hello kitty';
+      }
+    };
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div>我是文字</div>
+  <div>我是文字</div>
+  <p>我是段落</p>
+
+  <div class="father">
+    <p class="son">我是第一个内容</p>
+    <p class="son">我是内容</p>
+    <p class="son">我是内容</p>
+    <p class="son">我是内容</p>
+    <p class="son">我是内容</p>
+    <p class="son">我是内容</p>
+  </div>
+
+<script src="./jquery-1.12.4.js"></script>
+<script>
+  
+  // 1. jquery 中, 兼容全部的 css 选择器 (c1-c3)    
+  //    $('div')
+  //    $('#box')
+  //    $('.box')
+  //    $('ul > li')
+  //    $('div p')  
+
+  //    css3中的选择器, 也全部支持
+
+  // css(name, value)
+  // name 属性名
+  // value 属性值
+  // $('div').css('fontSize', '100px');
+
+  // $('.father > .son:nth-child(1)').css('backgroundColor', 'red');
+  // $('.father > .son:first-child').css('backgroundColor', 'red');
+
+
+  // 2. jquery中也新增了一些自己的选择器方法
+  
+</script>
+  
+</body>
+</html>
