@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      position: absolute;
+      top: 50px;
+      left: 0;
+    }
+    .two {
+      top: 350px;
+    }
+  </style>
+</head>
+<body>
+  <button>执行动画</button>
+  <!-- <div></div> -->
+  <div class="one"></div>
+  <div class="two"></div>
+
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    $(function() {
+      // animate
+      // 参数1: 必传参数 样式对象!   { width: 400, height: 400 }
+      // 参数2: 动画时间 默认是 normal 400ms  (可以设置时间, 或者 具体字符串fast slow normal)
+      // 参数3: 动画效果 swing默认值 秋千, 缓动(先慢后快再慢)    linear 匀速
+      // 参数4: 回调函数, 动画执行完成后, 会调用的函数
+
+      $('button').click(function() {
+        // $('div').animate({ width: 400, height: 400 })
+
+        // $('div').animate({ left: 800 }, 5000);
+
+        $('.one').animate({ left: 800 }, 5000, 'swing', function() {
+          console.log('动画执行完了');
+        });
+
+        $('.two').animate({ left: 800 }, 5000, 'linear');
+      })
+
+    });
+  
+  </script>
+  
+</body>
+</html>

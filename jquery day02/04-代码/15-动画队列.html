@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div></div>
+<script src="./jquery-1.12.4.js"></script>
+<script>
+
+  // 动画队列: 在jquery中, 为了保证动画都能够被执行, 会将当前元素的所有动画, 添加到一个队列中
+  // 会依次一个一个的执行
+
+  // 动画队列的好处: 可以更方便的执行复杂动画
+  // 1. 让盒子移动到 800px
+  // 2. 宽度变成 400px
+  // 3. 高度变成 400px
+  // 4. 圆角 50%
+
+  $(function() {
+
+    // 回调地狱
+    // 让盒子移动到 800px
+    // $('div').animate({ left: 800 }, 1000, function() {
+    //   // 宽度变成 400px
+    //   $('div').animate({ width: 400 }, 1000, function() {
+    //     // 高度变成 400px
+    //     $('div').animate({ height: 400 }, 1000, function() {
+    //       // 圆角 50%
+    //       $('div').animate({ borderRadius: '50%' }, 1000);
+    //     })
+    //   })
+    // });
+
+
+    // $('div').animate({ width: 400 }, 1000);
+    // $('div').animate({ left: 800 }, 1000);
+    // $('div').animate({ height: 400 }, 1000);
+    // $('div').animate({ borderRadius: '50%' }, 1000);
+
+
+    $('div')
+      .animate({ width: 400 }, 1000)
+      .animate({ left: 800 }, 1000)
+      .animate({ height: 400 }, 1000)
+      .animate({ borderRadius: '50%' }, 1000);
+
+  });
+
+
+</script>
+  
+</body>
+</html>

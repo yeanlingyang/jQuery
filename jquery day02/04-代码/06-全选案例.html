@@ -1,0 +1,135 @@
+
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    
+    .wrap {
+      width: 300px;
+      margin: 100px auto 0;
+    }
+    
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+      width: 300px;
+    }
+    
+    th,
+    td {
+      border: 1px solid #d0d0d0;
+      color: #404060;
+      padding: 10px;
+    }
+    
+    th {
+      background-color: #09c;
+      font: bold 16px "微软雅黑";
+      color: #fff;
+    }
+    
+    td {
+      font: 14px "微软雅黑";
+    }
+    
+    tbody tr {
+      background-color: #f0f0f0;
+      text-align: center;
+    }
+    
+    tbody tr:hover {
+      cursor: pointer;
+      background-color: #fafafa;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <table>
+    <thead>
+    <tr>
+      <th>
+        <input type="checkbox" id="all"/>
+      </th>
+      <th>菜名</th>
+      <th>饭店</th>
+    </tr>
+    </thead>
+    <tbody id="tb">
+    <tr>
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>红烧肉</td>
+      <td>田老师</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>西红柿鸡蛋</td>
+      <td>田老师</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>红烧狮子头</td>
+      <td>田老师</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>日式肥牛</td>
+      <td>田老师</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<script src="jquery-1.12.4.js"></script>
+<script>
+
+  $(function() {
+    // 点击全选按钮, 控制下面的所有 input
+    // 1. 给全选按钮添加点击事件
+    // 2. 获取全选按钮的状态(prop), 动态修改下面的所有按钮状态
+    $('#all').click(function() {
+      var flag = $(this).prop('checked');
+      $('#tb input').prop('checked', flag);
+    });
+
+
+    // 点击下面的按钮, 根据选中的个数, 控制全选按钮的状态
+    // 1. 获取 tbody 中全部的 input 个数
+    // 2. 获取 tbody 中选中的 input 个数
+    // 3. 判断个数, 如果相等, 说明全选了, 否则, 没有全选
+    $('#tb input').click(function() {
+      var total = $('#tb input').length; // 4 总个数
+      var ckLength = $('#tb input:checked').length; // 选中的个数
+
+      // if (total === ckLength) {
+      //   $('#all').prop('checked', true)
+      // }
+      // else {
+      //   $('#all').prop('checked', false)
+      // }
+      $('#all').prop('checked', total === ckLength);
+    });
+
+
+  });
+
+</script>
+
+</body>
+</html>

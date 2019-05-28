@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* 子元素在动画过程中, 总宽度有可能会超过1200一点点, 也会让最后一个盒子掉下来
+       一般都会给父元素 ul 多设一点宽
+    */
+    ul {
+      list-style: none;
+      width: 1300px;
+    }
+    
+    #box {
+      width: 1200px;
+      height: 400px;
+      border: 2px solid red;
+      margin: 100px auto;
+    }
+    
+    #box li {
+      width: 240px;
+      height: 400px;
+      /*border: 1px solid #000;*/
+      float: left;
+    }
+  
+  </style>
+</head>
+<body>
+<div id="box">
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+  $(function() {
+
+    // 1. 给每个 li 设置 背景图片
+    // 2. 给 li 注册 mouseenter 事件
+    // 3. 让 当前的 li 的宽度变成 800, 让其他的 li 宽度 100
+    // 4. 当离开整个大盒子的时候, 恢复所有的 li 的宽度, 240
+
+    var $lis = $('#box li');
+    // 在jquery中, 之所以可以少写很多 for 循环, 因为在 jquery 源码中帮我们封装了 for 循环的过程
+    // 给所有的元素, 设置上相同的属性
+    // $lis.css('background', 'url(images/1.jpg)');
+
+    // 如果需要给不同的元素, 设置不同的属性, 还是需要写 for
+    for (var i = 0; i < $lis.length; i++) {
+      $lis.eq(i).css('background', 'url(images/'+ (i+1) +'.jpg)');
+    }
+
+    $lis.mouseenter(function() {
+      $(this).stop().animate({ width: 800 }).siblings().stop().animate({ width: 100 });
+    });
+
+    $('#box').mouseleave(function() {
+      $lis.stop().animate({ width: 240 });
+    });
+
+
+
+  })
+</script>
+</body>
+</html>

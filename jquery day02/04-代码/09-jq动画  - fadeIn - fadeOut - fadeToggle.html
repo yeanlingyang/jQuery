@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: red;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <button>显示</button>
+  <button>隐藏</button>
+  <button>切换</button>
+
+  <div></div>
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+
+    // fadeIn fadeOut fadeToggle  控制盒子的显示隐藏 (控制动画, 是改透明度的)
+    // fadeIn(time, callback)
+    // 参数1: 动画时间  默认值 normal 400ms    直接设置具体数值 或者 固定字符串 (fast  normal  slow)
+    // 参数2: 回调函数  动画执行完成后, 调用的函数
+
+    $('button').eq(0).click(function() {
+      $('div').fadeIn(2000, function() {
+        console.log('动画执行完成了');
+      });
+    });
+
+    $('button').eq(1).click(function() {
+      $('div').fadeOut(2000);
+    });
+
+    $('button').eq(2).click(function() {
+      $('div').fadeToggle(2000);
+    });
+  
+  </script>
+
+  
+</body>
+</html>

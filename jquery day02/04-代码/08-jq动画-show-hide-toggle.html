@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <button>显示</button>
+  <button>隐藏</button>
+  <button>切换</button>
+
+  <div></div>
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+  
+    // show(time, callback);
+    // 参数1: 动画时间
+    //        (1) 不传参, 默认直接显示
+    //        (2) 设置具体的时间数值, 单位毫秒
+    //        (3) 设置固定字符串  fast 200ms   normal 400ms  slow 600ms
+
+    // 参数2: 回调函数
+    //       在动画执行完成后, 调用的函数
+
+    $('button').eq(0).click(function() {
+
+      $('div').show(2000, function() {
+        console.log('动画执行完了');
+      });
+
+    });
+
+    $('button').eq(1).click(function() {
+      $('div').hide(1000, function() {
+        console.log('隐藏了');
+      });
+    });
+
+    $('button').eq(2).click(function() {
+      $('div').toggle(1000);
+    });
+  
+  </script>
+
+  
+</body>
+</html>

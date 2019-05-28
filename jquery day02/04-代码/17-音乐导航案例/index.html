@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .nav {
+      width: 700px;
+      height: 60px;
+      margin: 0 auto;
+    }
+    .nav li {
+      float: left;
+      width: 100px;
+      height: 60px;
+      text-align: center;
+      line-height: 60px;
+      background-color: #000;
+      position: relative;
+      overflow: hidden;
+    }
+    .nav li a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: blue;
+      font-size: 25px;
+      text-decoration: none;
+      position: relative;
+      z-index: 2;
+    }
+    .nav li span {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 60px;
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <!-- ul>li*7>a[href="#"]{导航$}  -->
+  <div class="nav">
+    <ul>
+      <li><a href="#">导航1</a><span></span></li>
+      <li><a href="#">导航2</a><span></span></li>
+      <li><a href="#">导航3</a><span></span></li>
+      <li><a href="#">导航4</a><span></span></li>
+      <li><a href="#">导航5</a><span></span></li>
+      <li><a href="#">导航6</a><span></span></li>
+      <li><a href="#">导航7</a><span></span></li>
+    </ul>
+  </div>
+
+  <div>
+    <!-- controls 显示控件 -->
+    <audio src="mp3/1.mp3" id="audio"></audio>
+    <audio src="mp3/2.mp3"></audio>
+    <audio src="mp3/3.mp3"></audio>
+    <audio src="mp3/4.mp3"></audio>
+    <audio src="mp3/5.mp3"></audio>
+    <audio src="mp3/6.mp3"></audio>
+    <audio src="mp3/7.mp3"></audio>
+  </div>
+
+  <img src="./1.jpg" alt="">
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+  
+    $(function() {
+      // 新版浏览器做了优化, 不允许一上来就直接播放音频
+      // 需要用户进行了交互后, 才允许播放  (任意位置点击一下即可)
+
+      // 实现基础的导航动画
+      // 1. 鼠标移入 li  注册 mouseenter 事件
+      // 2. 让 当前元素, 里面的span 设置 top 为 0
+      // 3. 鼠标移出 li  注册 mouseleave 事件
+      // 4. 让 当前元素, 里面的span 设置 top 为 60px
+
+      // 实现音乐的播放
+      // 1. 有audio才能播放, 添加 7 个 audio
+      // 2. 根据下标, 播放对应的音频
+
+      var $lis = $('.nav li');
+      var $audios = $('audio');
+      var flag = true;   // 表示键盘没有按下, 可以按键的
+
+      $lis.mouseenter(function() {
+        $(this).children('span').stop().animate({ top: 0 });
+
+        var idx = $(this).index();
+
+        $audios[idx].load();   // 从头加载, 意味着下次播放会从头开始播放
+        $audios[idx].play();   // 播放音频
+      });
+
+      $lis.mouseleave(function() {
+        $(this).children('span').stop().animate({ top: 60 });
+      });
+
+      // 给 document 注册 keydown  keyup 事件
+      // 键盘按下执行
+      $(document).keydown(function(e) {
+        if (flag) {
+          flag = false;   // 键盘按下了, 没有弹起
+          var code = e.keyCode;
+          // 按得的几个键才处理
+          if (code >= 49 && code <= 55) {
+            var idx = code - 49; // 获得对应的下标
+            $lis.eq(idx).mouseenter();   // 调用执行当前 li 的 mouseenter
+          }
+        }
+      });
+
+      // 键盘弹起执行
+      $(document).keyup(function(e) {
+        var code = e.keyCode;
+        if (code >= 49 && code <= 55) {
+          var idx = code - 49; // 获得对应的下标
+          $lis.eq(idx).mouseleave();   // 调用执行当前 li 的 mouseleave
+        }
+        flag = true;  // 说明键盘已经弹起了
+      });
+
+
+    });
+  
+  </script>
+  
+</body>
+</html>

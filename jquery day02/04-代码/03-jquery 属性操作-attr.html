@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <img src="01.jpg" alt="图破了" title="小人人">
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+  
+    // 属性操作 attr  和 css方法 的语法一致
+    // 1. 设置单个属性 attr(name, value);
+    // 2. 设置多个属性 attr(obj);
+    // 3. 获取属性    attr(name);
+
+    // 移除属性 removeAttr(name) 
+
+    // 设置单个 attr(name, value)
+    // $('img').attr('src', '02.jpg');
+    // $('img').attr('title', '大人人');
+    // $('img').attr('alt', '图片没有加载成功');
+
+    // 设置多个 attr(obj)
+    // $('img').attr({
+    //   src: '03.jpg',
+    //   title: '中人人',
+    //   alt: '图片碎了'
+    // });
+
+    // 获取 attr(name)
+    // console.log($('img').attr('src'));
+
+    // 移除属性 removeAttr
+    // $('img').removeAttr('title');
+  
+  </script>
+  
+</body>
+</html>

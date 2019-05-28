@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <button id="sel">选中</button>
+  <button id="nosel">不选中</button>
+  <input type="checkbox">
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+  
+    $(function() {
+      // jquery1.6版本开始, attr方法不再支持对于 boolean 类型属性的操作, 
+      // 只要是 boolean 类型的属性操作, 一律用 prop 方法
+
+      // checked  selected  disabled
+
+      // prop(name, value)  设置单个值
+      // prop(name)         获取值   true / false
+
+      $('#sel').click(function() {
+        $('input').prop('checked', true)
+      });
+
+      $('#nosel').click(function() {
+        $('input').prop('checked', false)
+      });
+
+    });
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  
+  <button>开始</button>
+  <button>停止</button>
+  <div></div>
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+  
+    $(function() {
+
+      $('button').eq(0).click(function() {
+        $('div').slideDown(2000).slideUp(2000);
+      })
+
+      $('button').eq(1).click(function(){
+        // stop() 作用: 停止当前正在执行的动画
+        // 参数1: 是否清空动画队列   false默认  true
+        // 参数2: 是否立即抵达当前动画的最终效果  false默认  true
+        //        第二个参数一般不用, 如果传成 true, 立刻抵达, 会闪一下, 用户体验不好
+        // $('div').stop(true, true);
+
+        // $('div').stop(); // 停止当前正在执行的动画, 不清队列
+        // $('div').stop(true); // 停止当前正在执行的动画, 且清空队列
+      });
+
+    });
+  
+  </script>
+</body>
+</html>
