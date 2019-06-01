@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      width: 4000px;
+      height: 4000px;
+    }
+    button {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+<button>回到顶部</button>
+
+<script src="./jquery-1.12.4.js"></script>
+<script>
+
+  // 滚动事件 scroll
+  $(function() {
+
+    // scrollTop() 获取页面卷曲的高度的   设置 $(window).scrollTop(值);
+    // scrollLeft()
+
+    $(window).scroll(function() {
+      // var scrollTop = $(window).scrollTop();  // jquery的获取scrollTop
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;  // 原生的获取 scrollTop
+      console.log(scrollTop);
+    });
+
+
+    $('button').click(function() {
+      // $(window).scrollTop(0);   // jquery的设置
+
+      // window.pageYOffset 只能用于获取, 不能用于设置
+      // window.pageYOffset = 0;
+
+      // document.documentElement.scrollTop = 0;  // 设置给 html
+
+      $('html').animate({
+        scrollTop: 0
+      });
+    });
+
+
+
+    // 1. 获取卷曲的高度
+    //    jquery:  var scrollTop = $(window).scrollTop();
+    //    原生:    var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+
+
+    // 2. 设置卷曲的高度
+    //    jquery: $(window).scrollTop(0);
+    //    原生:   document.documentElement.scrollTop = 0;     (window.pageYOffset只能获取, 不能用于设置)
+
+
+    // 3. 实现animate动画时, 给 html 设置
+    //    $('html').animate({ scrollTop: 0 });
+
+  });
+
+
+</script>
+  
+
+
+</body>
+</html>

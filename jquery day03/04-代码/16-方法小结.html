@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+
+  // val() 获取或者设置 value 值,  val()  val(值)
+
+  // html()  获取或者设置 html 值    等价于 innerHTML    可以识别标签
+  // text()  获取或者设置 text 文本  等价于 innerText    不识别标签
+
+  // 获取盒子的宽高
+  // width  height   获取content
+  // innerWidth  innerHeight  获取 content + padding
+  // outerWidth  outerHeight  获取 content + padding + border
+  // outerWidth(true)  outerHeight(true)   获取 content + padding + border + margin
+
+  // 获取可视区的宽高
+  // $(window).width();
+  // $(window).height();        // window.innerWidth 和 window.innerHeight
+
+  // scrollTop() 和 scrollLeft()
+  // scrollTop() 获取 或 设置 卷曲的高度
+
+
+  // 1. 获取页面卷曲的高度
+  //    $(window).scrollTop();
+  //    var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+
+  // 2. 设置页面卷曲的高度
+  //    $(window).scrollTop(0);
+  //    document.documentElement.scrollTop = 0;    (window.pageYOffset 不能用于设置, 只能获取)
+
+  // 3. 结合animate 实现 scrollTop 的动画时, 设置给 html
+  //    $('html').animate({ scrollTop: 0 });
+
+
+  // offset()  获取元素相对于整个document(整个页面)左顶点的距离
+  // position() 获取相对于最近的有定位的祖辈元素的距离
+  // 都会返回一个对象  { left: 200, top: 200 };
+  
+
+</script>
+  
+</body>
+</html>

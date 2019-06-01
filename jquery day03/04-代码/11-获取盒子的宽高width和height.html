@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+      padding: 50px;
+      border: 10px solid #000;
+      margin: 100px;
+    }
+  
+  </style>
+</head>
+<body>
+  
+  <div></div>
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    
+    // console.log( $('div').css('width') );
+
+    // 盒子模型: margin  border  padding  content
+
+    // 1. width 和 height  获取的是 content 的宽高
+    // console.log( $('div').width() );
+    // console.log( $('div').height() );
+
+    // 2. innerWidth 和 innerHeight  获取 content + padding
+    // console.log( $('div').innerWidth() );
+    // console.log( $('div').innerHeight() );
+
+    // 3. outerWidth 和 outerHeight 获取 content + padding + border
+    // console.log( $('div').outerWidth() );
+    // console.log( $('div').outerHeight() );
+
+    // 4. outerWidth(true) 和 outerHeight(true)  获取 margin + border + padding + content
+    // console.log( $('div').outerWidth(true) );
+    // console.log( $('div').outerHeight(true) );
+
+
+    // 设置, 只有 width 和 height 可以进行设置, 如果要设置padding 或者 border, 一般用的是 css 方法
+    // $('div').width(100);   // css, width: 100px;
+    // $('div').height(100);
+
+
+    // 获取宽高, 在jquery四组
+    // 1. width 和 height   获取content
+    // 2. innerWidth 和 innerHeight  获取content + padding
+    // 3. outerWidth 和 outerHeight  获取content + padding + border
+    // 4. outerWidth(true) 和 outerHeight(true)  获取content + padding + border + margin
+
+
+    // 获取当前可视区域的宽高, 利用width 和 height方法
+    $(window).resize(function() {
+      // 原生, window.innerWidth / window.innerHeight  获取可视宽高
+
+      console.log($(window).width());
+      console.log($(window).height());
+    })
+  
+  </script>
+</body>
+</html>

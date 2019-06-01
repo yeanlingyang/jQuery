@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .box {
+      width: 600px;
+      margin: 100px auto;
+      border: 1px solid #000;
+      padding: 20px;
+    }
+
+    textarea {
+      width: 450px;
+      height: 160px;
+      outline: none;
+      resize: none;
+    }
+
+    ul {
+      width: 450px;
+      padding-left: 80px;
+    }
+
+    ul li {
+      line-height: 25px;
+      border-bottom: 1px dashed #cccccc;
+    }
+
+    .fr {
+      float: right;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box" id="weibo">
+  <span>微博发布</span>
+  <textarea name="" id="txt" cols="30" rows="10"></textarea>
+  <button id="btn">发布</button>
+  <ul id="ul">
+    <!-- <li>我是微博内容 <button class="fr">删除</button> </li> -->
+  </ul>
+</div>
+
+<script src="jquery-1.12.4.js"></script>
+<script>
+  $(function(){
+
+    // 1. 给发布按钮添加点击事件, 获取value值
+    // 2. 判断value值, 如果为空, return
+    // 3. 创建 li 元素, 设置内容, 添加到 ul 中
+    $('#btn').click(function() {
+      // val() 专门用于获取 value 值,  val()获取, val(值) 设置
+      var value = $('#txt').val().trim();
+      $('#txt').val('');
+
+      if (value === '') {
+        return;
+      }
+
+      // 创建元素
+      var $li = $('<li></li>');
+      $li.text( value );
+      $('#ul').prepend( $li );
+
+      // 创建删除按钮, 添加到 li 中
+      var $btn = $('<button class="fr">删除</button>');
+      $btn.click(function() {
+        $(this).parent().remove();
+      });
+      $li.append( $btn );
+
+    }); 
+
+  });
+</script>
+</body>
+</html>

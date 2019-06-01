@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>旋转木马轮播图</title>
+  <link rel="stylesheet" href="css/css.css"/>
+  <style>
+    .slide li {
+      transition: all .5s;
+    }
+    .slide .slide1 {
+      width: 400px;
+      top: 20px; 
+      left: 50px;
+      opacity: 0.2;
+      z-index: 2;
+    }
+
+    .slide .slide2 {
+      width: 600px;
+      top: 70px;
+      left: 0;
+      opacity: 0.8;
+      z-index: 3;
+    }
+
+    .slide .slide3 {
+      width: 800px;
+      top: 100px;
+      left: 200px;
+      opacity: 1;
+      z-index: 4;
+    }
+
+    .slide .slide4 {
+      width: 600px;
+      top: 70px;
+      left: 600px;
+      opacity: 0.8;
+      z-index: 3;
+    }
+
+    .slide .slide5 {
+      width: 400px;
+      top: 20px;
+      left: 750px;
+      opacity: .2;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+  <div class="slide" id="slide">
+    <ul>
+      <li><a href="#"><img src="images/slidepic1.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/slidepic2.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/slidepic3.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/slidepic4.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/slidepic5.jpg" alt=""/></a></li>
+    </ul>
+    <div class="arrow" id="arrow">
+      <a href="javascript:;" class="prev" id="arrLeft"></a>
+      <a href="javascript:;" class="next" id="arrRight"></a>
+    </div>
+  </div>
+</div>
+
+<script src="./jquery-1.12.4.js"></script>
+<script>
+
+  $(function() {
+
+    // 其实5个类, 就决定了5个位置
+    // 实现旋转木马的动画, 其实就是在改盒子的类名, 来控制位置
+    var $lis = $('#slide li');
+    var arr = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5'];
+
+    for (var i = 0; i < $lis.length; i++) {
+      $lis.eq(i).addClass(arr[i]);
+    }
+
+    // 鼠标移入大盒子, 箭头显示
+    // 鼠标移出大盒子, 箭头消失
+    $('#wrap').mouseenter(function() {
+      $('#arrow').stop().fadeIn();
+    });
+    $('#wrap').mouseleave(function() {
+      $('#arrow').stop().fadeOut();
+    });
+
+
+    // 点击右键头, 实现旋转效果, 就是在修改盒子的类名
+    // [1, 2, 3, 4, 5] =>  [5, 1, 2, 3, 4]
+    // 将数组的最后一项删除, 添加到数组的最前面
+    // unshift 在前面添加  shift  在前面删除
+    // push 在后面添加  pop 在后面删除
+    $('#arrRight').click(function() {
+      arr.unshift( arr.pop() );
+
+      // 根据新数组, 设置每个 li 的位置 (加类名)
+      for (var i = 0; i < $lis.length; i++) {
+        // removeClass() 不传参, 表示将所有的类名都清空
+        $lis.eq(i).removeClass().addClass(arr[i]);
+      }
+    });
+
+
+    // 点击左箭头, 实现旋转效果, 就是在修改盒子的类名
+    // [1,2,3,4,5]  =>  [2,3,4,5,1]
+    $('#arrLeft').click(function() {
+      arr.push( arr.shift() );  // 将第一项删除, 添加到最后面去
+
+      // 根据新数组, 设置每个 li 的位置 (加类名)
+      for (var i = 0; i < $lis.length; i++) {
+        // removeClass() 不传参, 表示将所有的类名都清空
+        $lis.eq(i).removeClass().addClass(arr[i]);
+      }
+    })
+
+  });
+
+</script>
+
+
+</body>
+</html>

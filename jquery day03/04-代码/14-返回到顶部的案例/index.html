@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      height: 8000px;
+    }
+    
+    a {
+      color: #FFF;
+    }
+    
+    .actGotop {
+      position: fixed;
+      bottom: 50px;
+      right: 50px;
+      width: 150px;
+      height: 195px;
+      display: none;
+      z-index: 100;
+    }
+    
+    .actGotop a, .actGotop a:link {
+      width: 150px;
+      height: 195px;
+      display: inline-block;
+      background: url(images/gotop.png) no-repeat;
+      outline: none;
+    }
+    
+    .actGotop a:hover {
+      width: 150px;
+      height: 195px;
+      background: url(images/gotop.gif) no-repeat;
+      outline: none;
+    }
+  </style>
+
+  
+</head>
+<body>
+<!-- 返回顶部小火箭 -->
+<div class="actGotop"><a href="javascript:;" title="Top"></a></div>
+
+
+<script src="jquery-1.12.4.js"></script>
+<script>
+  $(function () {
+    // 1. 添加页面滚动的监听, scroll 事件
+    // 2. 获取页面卷曲的高度, scrollTop
+    // 3. 如果 scrollTop >= 700, 让小火箭显示, 否则隐藏
+    $(window).scroll(function() {
+      var scrollTop = $(window).scrollTop();
+      if (scrollTop >= 700) {
+        $('.actGotop').stop().fadeIn();
+      }
+      else {
+        $('.actGotop').stop().fadeOut();
+      }
+    });
+
+    // 点击小火箭, 慢慢的回到顶部  (animate 和 scrollTop 一起用, 需要设置给 html)
+    $('.actGotop').click(function() {
+      $('html').stop().animate({
+        scrollTop: 0
+      });
+    });
+  });
+</script>
+</body>
+</html>

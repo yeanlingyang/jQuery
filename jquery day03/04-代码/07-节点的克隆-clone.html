@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+
+  <div>
+    我是div的内容
+  </div>
+
+  <p>我是p标签<a href="#">我是a标签</a></p>
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    
+    // $('div').append( $('p') ); 剪切的效果
+
+    // clone()  都是深克隆
+    // clone(false)  是深克隆, 克隆整个标签的全部内容, 不会克隆事件
+    // clone(true)   是深克隆, 克隆整个标签的全部内容, 还会克隆事件
+
+    // $('p').clone().appendTo( 'div' );
+
+
+    // $('p').click(function() {
+    //   console.log(1111);
+    // });
+
+    // 默认值 false
+    // // $('p').clone(false).appendTo( 'div' );   // 只克隆内容, 不克隆事件
+    // $('p').clone(true).appendTo( 'div' );   // 克隆内容, 还克隆事件
+  
+  
+  </script>
+  
+</body>
+</html>

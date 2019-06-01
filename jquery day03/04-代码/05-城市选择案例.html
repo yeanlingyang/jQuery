@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    select {
+      width: 200px;
+      height: 300px;
+      background-color: teal;
+      font-size: 24px;
+    }
+  
+  </style>
+</head>
+<body>  
+  <!-- multiple 表示可以选中多个 -->
+  <select multiple id="left">
+    <option>北京</option>
+    <option>上海</option>
+    <option>广州</option>
+    <option>深圳</option>
+    <option>安徽</option>
+    <option>南京</option>
+  </select>
+
+  <button> > </button>
+  <button> >> </button>
+  <button> < </button>
+  <button> << </button>
+
+  <select multiple id="right">
+
+  </select>
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+  
+    $(function() {
+      
+      // 把左边选中的移过去
+      $('button').eq(0).click(function() {
+        // append   $father.append( $child );
+        // appendTo $child.appendTo( $father );
+
+        $('#left option:selected').appendTo( $('#right') );
+      });
+
+      // 把左边的全部移动过去
+      $('button').eq(1).click(function() {
+
+        // $('#left option').appendTo( $('#right') );
+        $('#right').append( $('#left option') );
+      });
+
+
+      // 把右边选中的移动过来
+      $('button').eq(2).click(function() {
+        // appendTo 添加到,  $child.appendTo( ... );  也支持直接写选择器
+        // $('#right option:selected').appendTo( $('#left') );
+        $('#right option:selected').appendTo( '#left' );
+      });
+
+
+      // 把右边的全部移动到左边
+      $('button').eq(3).click(function() {
+        $('#right option').appendTo( '#left' );
+      });
+
+
+    });
+  </script>
+
+</body>
+</html>

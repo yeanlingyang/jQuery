@@ -1,0 +1,155 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style type="text/css">
+    html, body {
+      margin: 0px;
+      padding: 0px;
+      width: 100%;
+      height: 100%;
+      font-family: "微软雅黑";
+      font-size: 62.5%;
+    }
+    
+    .boxDom {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .idDom {
+      width: 100%;
+      height: 100px;
+      background: #666;
+      position: fixed;
+      bottom: 0px;
+    }
+    
+    .content {
+      display: inline-block;
+      width: 430px;
+      height: 40px;
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      margin: auto;
+    }
+    
+    .title {
+      display: inline;
+      font-size: 4em;
+      vertical-align: bottom;
+      color: #fff;
+    }
+    
+    .text {
+      border: none;
+      width: 300px;
+      height: 30px;
+      border-radius: 5px;
+      font-size: 2.4em;
+    }
+    
+    .btn {
+      width: 60px;
+      height: 30px;
+      background: #f90000;
+      border: none;
+      color: #fff;
+      font-size: 2.4em;
+    }
+    
+    span {
+      height: 40px;
+      position: absolute;
+      overflow: hidden;
+      color: #000;
+      font-size: 4em;
+      line-height: 1.5em;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+  
+  </style>
+</head>
+
+<body>
+
+<div class="boxDom" id="boxDom">
+  <!-- <span>我是添加的弹幕</span> -->
+
+
+  <!-- 底下的发弹幕按钮大盒子 -->
+  <div class="idDom" id="idDom">
+    <div class="content">
+      <p class="title">吐槽:</p>
+      <input type="text" class="text" id="text"  autocomplete="off">
+      <button type="button" class="btn" id="btn">发射</button>
+    </div>
+  </div>
+</div>
+</body>
+
+<script src="jquery-1.12.4.js"></script>
+<script>
+  $(function(){
+    // 1. 给发射按钮添加点击事件, 获取value值
+    // 2. 如果value为空, return
+    // 3. 动态创建span, 设置内容, 添加到 #boxDom 中
+    // 4. 给span设置随机的颜色
+    // 5. 随机的top, 范围: 0-1/2可视区高度
+    // 6. 设置span到屏幕的外面去, left: 可视区宽度
+    // 7. 添加animate动画, 移动到, left: -自身宽度
+    // 8. 动画执行完, 删除
+    // 9. 添加键盘弹起事件 input里面注册
+
+    var colors = ['red', 'green', 'yellow', 'hotpink', 'deeppink', 'orange', 'purple', 'blue'];
+
+    $('#btn').click(function() {
+      var value = $('#text').val().trim();
+      $('#text').val('');
+      if (value === '') {
+        return;
+      }
+
+      // 动态创建 span, 设置内容, 添加到 #boxDom 中
+      var $span = $('<span></span>');
+      $span.text(value);
+      $('#boxDom').prepend( $span );
+
+      // 设置随机的颜色
+      // 随机下标: 0~colors.length-1    求0~colors.length-1的随机整数
+      var random = parseInt( Math.random() * colors.length );
+      $span.css('color', colors[random]);
+
+      // 随机top  0-半个可视区
+      var pageHeight = $(window).height();
+      var randomTop = Math.random() * (pageHeight / 2);
+      $span.css('top', randomTop);
+
+      // 设置left, 离开屏幕
+      var pageWidth = $(window).width();
+      $span.css('left', pageWidth);
+
+      // 添加动画, 动画执行完, 自杀
+      $span.animate({ left: -$span.width() }, 5000, 'linear', function() {
+        $(this).remove();
+      });
+    });
+
+
+    $('#text').keyup(function( e ) {
+      if (e.keyCode === 13) {
+        // 按了回车键, 调用 click
+        $('#btn').click();
+      }
+    })
+  }); 
+</script>
+</html>

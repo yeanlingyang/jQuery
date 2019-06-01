@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+    }
+  
+  </style>
+</head>
+<body>
+
+  <h1>我是h1</h1>
+  <div>
+    我是div的内容
+  </div>
+  <h2>我是h2</h2>
+
+  <p>我是页面中存在的p元素</p>
+
+
+   <script src="./jquery-1.12.4.js"></script>
+   <script>
+     // append   
+     // prepend  
+     // appendTo
+     // prependTo
+     // before
+     // after
+
+     
+     var $span = $('<span>我是span的文字</span>');  // 新创建出来的span
+
+    // 1. append   $father.append($child)  将child添加到father的最后面
+    // $('div').append( $span );
+    // $('div').append( $('p') );    // 如果是添加的页面中存在的元素, 剪切的效果
+
+    // 2. prepend  $father.prepend($child); 将child添加到father的最前面
+    // $('div').prepend( $span );
+    // $('div').prepend( $('p') );
+
+    // 3. appendTo  $child.appendTo( $father );   将child添加到father的最后面
+    // $span.appendTo( $('div') );
+    // $('p').appendTo( $('div') );
+
+    // 4. prependTo  $child.prependTo( $father );  将child添加到father的最前面
+    // $span.prependTo( $('div') );
+    // $('p').prependTo( $('div') );
+
+    // 5. before  $A.before( $B );  将B扔到A的前面   (兄弟关系, 相邻)
+    // $('div').before( $span );   // 将$span扔到 $('div')的前面
+
+    // 6. after   $A.after( $B );  将B扔到A的后面  (兄弟关系, 相邻)
+    // $('div').after( $span );
+
+
+    /* 
+      append     $father.append( $child )  把child添加到father的最后面
+      prepend    $father.prepend( $child ) 把child添加到father的最前面
+      
+      appendTo   $child.appendTo( $father )  把child添加到father的最后面
+      prependTo  $child.prependTo( $father ) 把child添加到father的最前面
+
+      before     $A.before($B)  把B扔到A的前面  (相邻, 兄弟)
+      after      $A.after($B)   把B扔到A的后面  (相邻, 兄弟)
+
+      所有的添加操作, 如果添加的是页面中的元素, 剪切的效果
+    */
+
+   
+   </script>
+
+  
+</body>
+</html>

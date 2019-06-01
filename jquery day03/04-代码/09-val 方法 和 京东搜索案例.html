@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <input type="text" value="京东特价">
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+  
+    // val() 获取或设置表单元素value值   val()获取,  val(值) 设置
+
+    // 思路:
+    // 1. 获取焦点, focus事件, 判断value值, 是否等于京东特价, 如果是, 清空
+    // 2. 失去焦点, blur事件,  判断value值, 是否为空, 如果为空, 设置值为  京东特价
+
+    $('input').focus(function() {
+      var value = $(this).val();
+      if (value === '京东特价') {
+        $(this).val('');
+      }
+    });
+
+    $('input').blur(function() {
+      var value = $(this).val();
+      if (value === '') {
+        $(this).val('京东特价');
+      }
+    });
+  
+  
+  </script>
+
+</body>
+</html>

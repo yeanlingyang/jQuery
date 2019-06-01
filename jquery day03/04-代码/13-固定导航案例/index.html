@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+    body {
+      text-align: center;
+    }
+    
+    img {
+      vertical-align: top;
+    }
+    
+    .main {
+      margin: 10px auto 0;
+      width: 1000px;
+    }
+    
+    .fixed {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="top" id="topPart">
+  <img src="images/top.png" alt=""/>
+</div>
+<div class="nav" id="navBar">
+  <img src="images/nav.png" alt=""/>
+</div>
+<div class="main" id="mainPart">
+  <img src="images/main.png" alt=""/>
+</div>
+
+<script src="./jquery-1.12.4.js"></script>
+<script>
+  $(function() {
+
+    // 1. 添加监听, scroll事件
+    // 2. 页面滚动时, 获取scrollTop
+    // 3. 判断, scrollTop, 如果scrollTop > 头部的高度, nav导航应该固定定位, main添加marginTop
+    // 4. 如果没到, nav恢复成标准流, main去掉多余的marginTop
+
+    $(window).scroll(function() {
+
+      var scrollTop = $(window).scrollTop();
+
+      if (scrollTop > $('.top').height()) {
+        $('.nav').addClass('fixed');
+        $('.main').css('marginTop', 10 + $('.nav').height());
+      }
+      else {
+        $('.nav').removeClass('fixed');
+        $('.main').css('marginTop', 10);
+      }
+
+    });
+
+ 
+  });
+</script>
+
+</body>
+</html>

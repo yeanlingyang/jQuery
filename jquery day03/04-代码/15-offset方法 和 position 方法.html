@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .father {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+      position: relative;
+      margin: 500px;
+    }
+    .son {
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+      position: absolute;
+      left: 100px;
+      top: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="father">
+    <div class="son"></div>
+  </div>
+
+<script src="./jquery-1.12.4.js"></script>
+<script>
+
+  // position()  获取元素距离最近的有定位的祖辈元素的距离
+  // offset()    获取的是元素 距离 整个docuemnt左顶点的位置
+
+  // console.log($('.son').position());
+  // $('.son').position().left   =>   offsetLeft
+  // $('.son').position().top    =>   offsetTop
+
+
+  // console.log($('.son').offset());
+
+
+
+</script>
+  
+</body>
+</html>
