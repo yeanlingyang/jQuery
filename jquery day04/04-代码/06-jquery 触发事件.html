@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <!-- 钢琴案例, 按下键盘, 触发mouseenter, 键盘弹起, 触发mouseleave 
+       $('div').mouseenter();
+
+       $('div').trigger('事件名');
+       $('div').trigger('mouseenter');
+       $('div').trigger('click');    对于h5新增的事件, 如果要触发, 只能用 trigger('transitionend')
+  -->
+  <button id='btn1'>按钮1-打印</button>
+  <button id="btn2">按钮2-触发</button>
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+  
+    $('#btn1').on('click', function() {
+      console.log('这是按钮1的点击事件');
+    });
+
+    $('#btn2').on('click', function() {
+      // $('#btn1').click();
+      $('#btn1').trigger('click');
+    });
+  </script>
+  
+</body>
+</html>

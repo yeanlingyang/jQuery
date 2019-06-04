@@ -1,0 +1,71 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>复制</title>
+    <style>
+      ul {
+        list-style: none;
+      }
+
+      li {
+        float: left;
+        width: 200px;
+        height: 200px;
+        background: pink;
+        text-align: center;
+        line-height: 200px;
+        margin: 0 20px 20px 0;
+      }
+    </style>
+  </head> 
+
+  <body>
+    <ul id="ulList">
+      <li>什么都看不见</li>
+      <li>什么都看不见</li>
+      <li>什么都看不见</li>
+      <li>什么都看不见</li>
+      <li>什么都看不见</li>
+      <li>什么都看不见</li>
+      <li>什么都看不见</li>
+      <li>什么都看不见</li>
+      <li>什么都看不见</li>
+      <li>什么都看不见</li>
+    </ul>
+  </body>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    // 隐式迭代了, 给所有 li 设置了相同的值
+    // $('li').css('opacity', 0.5);
+
+
+    // 给每个盒子设置不同的值, 就需要手动遍历了
+    // var $lis = $('li');
+    // for (var i = 0; i < $lis.length; i++) {
+    //   $lis.eq(i).css('opacity', 0.1 * i);
+    // }
+
+    // 在jquery中, 提供了一个 each 方法, 可以用于遍历 jquery对象
+
+    // 1. index 下标
+    // 2. element 遍历的每一项   dom对象
+    // 3. this 指的也是遍历的每一项    dom对象
+
+    // 每有一个 li, 都会调用一次 function
+    // $lis.each(function(index, element) { ... })
+
+    $('li').each(function(index, element) {
+      // console.log(index);
+      // console.log(element);
+      // console.log(this);
+
+      $(this).css('opacity', 0.1 * index);
+    });
+
+  </script>
+</html>

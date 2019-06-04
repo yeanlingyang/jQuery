@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/jquery.fullPage.css">
+  <style>
+    .page1 {
+      /* background: skyblue; */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- section 类, 决定了一屏幕 -->
+  <!-- slide类, 放在section盒子中, 表示一横屏 -->
+  <div class="mybox">
+    <div class="section page1">第1屏</div>
+    <div class="section page2">
+      <div class="slide">第1横屏</div>
+      <div class="slide">第2横屏</div>
+      <div class="slide">第3横屏</div>
+    </div>
+    <div class="section page3">第3屏</div>
+    <div class="section page4">第4屏</div>
+  </div>
+
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/jquery.fullPage.min.js"></script>
+  <script>
+  
+    $(function() {
+
+      $('.mybox').fullpage({
+        // 设置每个屏的背景
+        sectionsColor: ['skyblue', 'green', 'hotpink', 'brown'], 
+        // 设置是否垂直居中
+        verticalCentered: false,
+        // 是否显示导航
+        navigation: true,
+
+        // 当一屏幕完全加载后, 调用
+        afterLoad: function(anchorLink, index) {
+          console.log(index);
+        }
+      });
+
+    });
+
+    // fullpage的基本使用:
+    // 1. 引包, 引入 css 和 js
+    // 2. 写 html 结构,  .section 就表示一个屏幕
+    // 3. 初始化  $('.box').fullpage()
+    // 4. 额外的配置
+  
+  </script>
+  
+</body>
+</html>

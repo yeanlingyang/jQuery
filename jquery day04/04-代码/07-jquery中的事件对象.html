@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+
+  <div></div>
+
+  <a href="http://www.baidu.com">我是一个a标签, 我希望点击我时, 不跳转</a>
+  
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    
+    // jquery中对于之前的事件对象, 进行兼容性封装处理
+    $('div').click(function( e ) {
+      // console.log( e );
+      // e.stopPropagation(); // 阻止冒泡   
+      // e.preventDefault();  // 阻止浏览器的默认行为
+
+      // return false;  // 阻止冒泡, 也可以阻止浏览器默认行为
+    });
+
+
+    $('a').click(function( e ) {
+      e.preventDefault();
+      console.log(n);  // 报错后, 下面的代码不执行, 没有阻止到a标签的跳转
+      // return false;
+    })
+  
+  </script>
+</body>
+</html>

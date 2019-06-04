@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+
+<div></div>
+
+<script src="./jquery-1.12.4.js"></script>
+<script>
+
+  // 所有的事件绑定, 都可以通过 off() 解绑
+  // 1. off() 解绑所有的事件
+  // 2. off('事件名')  解绑指定的事件
+
+  $('div').click(function() {
+    console.log('点击事件');
+  });
+  $('div').on('mouseenter', function() {
+    console.log('鼠标移入事件');
+  });
+
+  // $('div').off();
+  // $('div').off('click')  推荐
+
+
+</script>
+  
+</body>
+</html>

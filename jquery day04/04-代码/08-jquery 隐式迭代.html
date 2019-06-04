@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+    }
+  </style>
+</head>
+<body>
+
+<div>
+  <p style="font-size: 100px;">我是p元素</p>
+  <p style="font-size: 30px;">我是p元素</p>
+  <p style="font-size: 50px;">我是p元素</p>
+  <p style="font-size: 40px;">我是p元素</p>
+  <p style="font-size: 60px;">我是p元素</p>
+</div>
+
+<script src="./jquery-1.12.4.js"></script>
+<script>
+
+  // 隐式迭代: 在设置操作时, 会偷偷的进行遍历
+  // 1. 如果是设置操作, 会给多个元素, 设置相同的值
+  // 2. 如果是获取操作, 获取的是第一个元素的值     (hasClass例外, 只要有一个元素有这个类, 就返回true)
+  // 3. 如果是设置操作, 需要设置不同的值, 隐式迭代就不行了, 需要我们自己手动遍历了!!!
+  $('p').text('我是内容');
+
+  console.log($('p').css('fontSize'));
+
+  console.log($('p').eq(1).css('fontSize'));
+
+</script>
+  
+</body>
+</html>

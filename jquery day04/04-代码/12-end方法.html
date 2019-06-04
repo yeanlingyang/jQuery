@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .father {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+    }
+    .son {
+      width: 200px;
+      height: 200px;
+      background-color: green;
+    }
+  
+  </style>
+</head>
+<body>
+
+  <div class="father">
+    <div class="son"></div>
+  </div>
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    // jquery对象中的 dom 对象是可以修改的, 是会发生变化的
+    // parent()  children() next()  prev() .....
+
+    // end() 方法, 可以恢复到上一次链
+    $('.father').css('backgroundColor', 'red').children().css('backgroundColor', 'blue').end().width(600).height(600);
+  
+  </script>
+  
+</body>
+</html>

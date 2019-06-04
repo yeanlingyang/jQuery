@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <button>添加一个新p</button>
+  <div>
+    <p>我是p元素</p>
+    <p>我是p元素</p>
+    <p>我是p元素</p>
+    <p>我是p元素</p>
+    <span>我是span</span>
+    <span>我是span</span>
+    <span>我是span</span>
+  </div>
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    
+    // 1. on(事件名, 事件处理函数);
+    // $('p').on('click', function() {
+    //   console.log(1111);
+    // });
+
+    $('button').on('click', function() {
+      $('<p>我是新创建的p元素</p>').appendTo('div');
+    });
+
+
+    // 2. on(事件名, 选择器, 事件处理函数)   delegate(选择器, 事件名, 事件处理函数)
+    //    事件委托的写法
+    $('div').on('click', 'p', function() {
+      console.log('11111');
+    });
+
+
+    // 简单事件  $('div').click(function() { .... })
+    
+    // bind方法  $('div').bind('click', function() {....})   
+    // 好处: 可以给新增的h5事件绑定, 可以同时绑定多个事件
+
+    // delegate方法 $('div').delegate('p', 'click', function() { ... });  事件委托
+    // (1) 给祖辈元素绑定
+    // (2) this被jquery进行了处理, 让this重新指向了当前点击的元素
+    // 好处: 可以给动态创建的元素, 绑定事件, 可以批量绑定事件
+
+    // 统一 on 方法
+    // $('button').on('click', function(){ ... } );  绑定普通事件
+    // $('div').on('click', 'span', function() { ... });  绑定委托事件
+
+  
+  </script>
+  
+</body>
+</html>

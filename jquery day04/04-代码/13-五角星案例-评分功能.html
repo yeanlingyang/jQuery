@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      font-size: 50px;
+      float: left;
+      color: red;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+  </ul>
+
+  <!-- 
+    ☆
+    ★
+   -->
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+
+    $(function () {
+
+      // 1. 鼠标进入 li, 让自己变成实心, 让前面的变成实心, 让后面的变成空心
+      // 2. 鼠标移出 ul, 让所有的变成空心
+      var $lis = $('li');
+
+      $lis.mouseenter(function () {
+        // end() 可以恢复到上一次链
+        $(this).text('★').prevAll().text('★').end().nextAll().text('☆');
+      });
+
+      $('ul').mouseleave(function () {
+        // 鼠标离开 ul 时, 应该根据记录的分数, 来显示
+        if ($('.active').length === 0) {
+          // 没有选分数, 将所有的变成空心
+          $lis.text('☆');
+        }
+        else {
+          // 如果选了, 应该按照选中的分数显示
+          // 让active的变成实心, 让前面的变成实心, 后面的变成空心
+          $('.active').text('★').prevAll().text('★').end().nextAll().text('☆');
+        }
+        
+      });
+
+
+      // 点击时, 要添加一个标记, 记录选了几分
+      $lis.click(function() {
+        $(this).addClass('active').siblings().removeClass('active');
+      });
+
+    })
+
+
+  </script>
+</body>
+
+</html>

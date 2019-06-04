@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      font-size: 50px;
+      float: left;
+      color: red;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+  </ul>
+
+  <!-- 
+    ☆
+    ★
+   -->
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+
+    // 1. 鼠标进入 li, 让自己变成实心, 让前面的变成实心, 让后面的变成空心
+    // 2. 鼠标移出 ul, 让所有的变成空心
+    var $lis = $('li');
+
+    $lis.mouseenter(function() {
+      // prev() 找上一个兄弟
+      // prevAll() 找前面的所有兄弟
+      // next() 找下一个兄弟
+      // nextAll() 找后面的所有兄弟
+      // siblings() 找其他所有兄弟(不包含自己)
+
+      // $(this).text('★');
+      // $(this).prevAll().text('★');
+      // $(this).nextAll().text('☆');
+
+      // jquery对象中存的dom元素, 是会被修改的
+      // $('p').parent()  指的就是 p 的父元素
+
+      // end() 可以恢复到上一次链
+      $(this).text('★').prevAll().text('★').end().nextAll().text('☆');
+    });
+
+
+    $('ul').mouseleave(function() {
+      $lis.text('☆');
+    })
+
+  </script>
+</body>
+</html>

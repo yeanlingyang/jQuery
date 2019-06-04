@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<div></div>
+<p></p>
+
+<script src="./jquery-1.12.4.js"></script>
+<script src="./jquery.sayhello.js"></script>
+<script>
+
+  // jquery的所有方法, 都存在 $.fn 中   (原型)
+  // 所有的jquery对象, 都可以使用 $.fn 中的方法
+  // console.log($.fn)
+
+  // $('div').css('width', 200);
+
+  // jquery插件的原理, 就是在给 $.fn 添加方法
+  // $.fn.sayHello = function() {
+  //   console.log('大家好');
+  // };
+
+  $('div').sayHello();
+  $('p').sayHello();
+
+</script>
+  
+</body>
+</html>

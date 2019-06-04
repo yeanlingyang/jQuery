@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+
+<div></div>
+<script src="./jquery-1.12.4.js"></script>
+<script>
+
+
+  // 链式编程原理: 在jquery中, 方法在调用完后, 会返回jquery对象, 是jquery对象又可以接着调用jquery方法
+  // 1. 设置操作, 一般都会返回jquery对象, 那么就可以接着调用
+  // 2. 获取性操作, 返回是获取的值, 不能返回jquery对象, 此时就不能接着链式了
+  // var result = $('div').css('backgroundColor', 'green').width(600).height(600).width();
+  // console.log(result);
+
+</script>
+  
+</body>
+</html>

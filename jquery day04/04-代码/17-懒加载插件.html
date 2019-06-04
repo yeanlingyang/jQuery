@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      height: 4000px;
+      background-color: pink;
+    }
+    img {
+      width: 500px;
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 懒加载: 懒懒的加载, 不在屏幕中, 不着急显示, 
+       只有到了屏幕中时, 才进行显示加载, 性能效率更高
+  -->
+
+  <div></div>
+
+  <img class="mylazy" data-original="01.jpg">
+  <img class="mylazy" data-original="02.jpg">
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script src="./jquery.lazyload.js"></script>
+  <script>
+  
+    $("img.mylazy").lazyload();
+
+
+    /* 
+      1. 引包, 先引入 jquery, 后引入 lazyload
+      2. 设置 img 属性
+         (1) 真实的路径, 不能直接放在 src, 需要放在 data-original
+         (2) 添加类名, 为了方便查找
+      3. 设置 img 的宽高
+      
+      4. $("img.mylazy").lazyload(); 进行初始化
+    
+    */
+  
+  </script>
+  
+</body>
+</html>

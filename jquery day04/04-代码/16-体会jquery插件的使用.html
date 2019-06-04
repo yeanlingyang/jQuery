@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  
+<div></div>
+
+<script src="./jquery-1.12.4.js"></script>
+<!-- jquery.color.js 强化了 jquery 原来的 animate 方法, 可以对于颜色也实现动画 -->
+<script src="./jquery.color.js"></script>
+<script>
+  
+  // 在jquery默认没有提供对于颜色的 animate 动画效果
+  // 如果需要, 自己用插件
+  $('div').animate({
+    width: 600,
+    height: 600,
+    backgroundColor: 'red'
+  }, 2000);
+
+</script>
+
+</body>
+</html>
